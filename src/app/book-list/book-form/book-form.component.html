@@ -1,0 +1,27 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+        <h2>Enregistrer un nouveau livre</h2>
+    </mat-card-title>
+  </mat-card-header>
+  <form [formGroup]="bookForm" (ngSubmit)="onSaveBook()">
+    <mat-card-content>
+      <mat-form-field>
+          <input matInput placeholder="Titre" formControlName="title">
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput placeholder="Auteur" formControlName="author">
+      </mat-form-field>
+      <mat-form-field>
+          <textarea matInput placeholder="Synopsis" formControlName="synopsis"></textarea>
+      </mat-form-field>
+      <section>
+        <h4>Ajouter une photo</h4>
+        <input type="file" (change)="detectFiles($event)" accept="image/*">
+      </section>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button color="warn" [disabled]="bookForm.invalid || fileIsUploading" type="submit">Enregistrer</button>
+    </mat-card-actions>
+  </form>
+</mat-card>

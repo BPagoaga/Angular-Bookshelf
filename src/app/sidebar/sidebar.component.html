@@ -1,0 +1,16 @@
+<nav role="navigation">
+  <mat-list role="list">
+    <mat-list-item role="listitem" routerLinkActive="active">
+      <a mat-button routerLink="books">Livres</a>
+    </mat-list-item>
+    <mat-list-item role="listitem" routerLinkActive="active" *ngIf="!isAuth">
+      <a mat-button routerLink="auth/signup">Créer un compte</a>
+    </mat-list-item>
+    <mat-list-item role="listitem" routerLinkActive="active" *ngIf="!isAuth">
+      <a mat-button routerLink="auth/signin">Connexion</a>
+    </mat-list-item>
+    <mat-list-item role="listitem" *ngIf="isAuth" (click)="onSignOut()">
+      <a mat-button >Déconnexion</a>
+    </mat-list-item>
+  </mat-list>
+</nav>

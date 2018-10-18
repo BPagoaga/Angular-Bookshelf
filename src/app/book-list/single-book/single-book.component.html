@@ -1,0 +1,16 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+        <h1>{{ book.title }}</h1>
+    </mat-card-title>
+    <mat-card-subtitle>
+        <h3>{{ book.author }}</h3>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+      <p>{{ book.synopsis }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+      <button mat-raised-button color="warn" (click)="onBack()">Retour</button>
+  </mat-card-actions>
+</mat-card>

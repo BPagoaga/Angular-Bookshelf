@@ -1,0 +1,45 @@
+<mat-card class="mat-card__relative">
+  <mat-card-title>
+    <h2>Vos livres</h2>
+  </mat-card-title>
+  <mat-card-actions>
+    <button mat-fab color="primary" class="button-add" (click)="onNewBook()"><mat-icon>add</mat-icon></button>
+  </mat-card-actions>
+</mat-card>
+
+<table mat-table [dataSource]="books" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Picture Column -->
+  <ng-container matColumnDef="picture">
+    <th mat-header-cell *matHeaderCellDef> Couverture </th>
+    <td mat-cell *matCellDef="let book">
+      <img style="max-width:400px;" *ngIf="book.photo" [src]="book.photo">
+    </td>
+  </ng-container>
+
+  <!-- Titre Column -->
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef> Titre </th>
+    <td mat-cell *matCellDef="let book" (click)="onViewBook(book.id)"> {{book.title}} </td>
+  </ng-container>
+
+  <!-- Auteur Column -->
+  <ng-container matColumnDef="author">
+    <th mat-header-cell *matHeaderCellDef> Auteur </th>
+    <td mat-cell *matCellDef="let book"> {{book.author}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef> Action </th>
+    <td mat-cell *matCellDef="let book">
+      <button mat-fab color="warn" (click)="onDeleteBook(book)"><mat-icon>delete</mat-icon></button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+

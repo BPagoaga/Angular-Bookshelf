@@ -1,0 +1,13 @@
+table {
+  width: 100%;
+}
+
+.button-add {
+  position: absolute;
+  right: 5%;
+  bottom: -20%;
+}
+
+.mat-card__relative {
+  position: relative;
+}
